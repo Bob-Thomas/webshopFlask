@@ -1,0 +1,44 @@
+<!doctype html>
+<title>WEBSHOP</title>
+<link rel=stylesheet type=text/css href='{{ url_for('static', filename='style/style.css') }}'>
+<link rel=stylesheet type=text/css href='{{ url_for('static', filename='style/webshopcss/jquery-ui-1.10.2.custom.css')}}' />
+<script style=text/javascript src='script.js'></script>
+<script style=text/javascript src='{{ url_for('static', filename='Jquery/jquery-1.8.3.js') }}'></script>
+<script style=text/javascript src='{{ url_for('static', filename='Jquery/jquery.validate.js')}}'></script>
+<script style=text/javascript src='{{ url_for('static', filename='Jquery/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.js')}}'></script>
+<header></header>
+
+<body>
+  
+<div id='home'>
+<img src='http://placekitten.com/960/128' width='960' height='128' />
+  <div id='links'>
+<ul>
+   <li class='active'><a href='{{ url_for('home') }}'><span>Home</span></a></li>
+   <li class='has-sub'><a href=''><span>Products</span></a>
+      <ul>
+         <li><a href='{{ url_for('equipment') }}'><span>equipment</span></a></li>
+         <li><a href='{{ url_for('games') }}'><span>games</span></a></li>
+         <li class='last'><a href='{{ url_for('merchandise') }}'><span>merchandise</span></a></li>
+      </ul>
+   </li>
+   <li><a href='{{ url_for('about') }}'><span>About</span></a></li>
+    <li><a href='{{ url_for('contact') }}'><span>Contact</span></a></li>
+
+   <li><a href='{%print loginState%}'><span>{%print loginState%}</span></a></li>
+    <li class='last'>{%print myAcount|safe%}</li>
+</ul>
+</div>
+<div id='content'>
+{% block body %}
+{% endblock %}
+</div>
+  
+  <div id='disclaimer'>
+      ©bob thomas
+  </div>
+
+
+    </div>
+  </body>
+</html>

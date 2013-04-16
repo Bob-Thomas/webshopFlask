@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block body %}
+<script type="text/javascript">
+$("document").ready(function(){
+//alert('boe');    
+      $("#loginDialog").dialog({ width: 350,height: 395, autoOpen: true, modal: true
+      }).parent().find(".ui-dialog-titlebar-close").click(function() {
+       $(location).attr('href','/');
+});;
+            $('#loginDialog').dialog('open'); 
+
+  
+});
+
+</script>
+
+<div id='loginDialog'>
+  <table>
+  <h1>Login</h1>
+  {% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+  {% endif %}
+  <form action="" method=post>
+    <dl>
+      <dt>Username:
+      <dd><input type=text name=username value="{{
+          request.form.username }}">
+      <dt>Password:
+      <dd><input type=password name=password>
+    </dl>
+    <p><a href='{{ url_for('register')}}' >dont have an acount yet register here</a>
+    <p><input type=submit value=Login>
+  </form>
+</table>
+</div>
+{% endblock %}
