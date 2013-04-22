@@ -9,10 +9,10 @@
 <header></header>
 
 <body>
-  
+
 <div id='home'>
 <img src='http://placekitten.com/960/128' width='960' height='128' />
-  <div id='links'>
+  <div id='links' >
 <ul>
    <li class='active'><a href='{{ url_for('home') }}'><span>Home</span></a></li>
    <li class='has-sub'><a href=''><span>Products</span></a>
@@ -23,10 +23,11 @@
       </ul>
    </li>
    <li><a href='{{ url_for('about') }}'><span>About</span></a></li>
+   <li><a href='{{ url_for('cart') }}'><span>Shopping Cart</span></a></li>
     <li><a href='{{ url_for('contact') }}'><span>Contact</span></a></li>
-
-   <li><a href='{%print loginState%}'><span>{%print loginState%}</span></a></li>
+       {%print adminPanel|safe%}
     <li class='last'>{%print myAcount|safe%}</li>
+    <li><a href='{%print loginState%}'><span>{%print loginState%}</span></a></li>
 </ul>
 </div>
 <div id='content'>

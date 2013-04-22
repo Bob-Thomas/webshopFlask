@@ -1,8 +1,35 @@
  {% extends "layout.html" %}
  {% block body %}
- 
-        <h3> contact </h3>
-
-
+        <h3> Equipment </h3>
+        {% if error %}
+          <p class=error><strong></strong> <h2>{{ error }}</h2>
+      {% endif %}
+        <div id = 'showproductsWrapper'>
+        <div id='sidebar'>
+            <h1>FILTER</h1>
+        </div>
+        <div id='styled-table-show'>
+        <form action="" method=post>    
+         <table>
+        <tr>
+            {%for s in show %}
+            {%set divider = divider + 1%}
+                <td> <br />
+                    {{s.name}}<br />
+                    <img src='static/resources/{{s.producttype}}/{{s.name}}.jpg'  class='{{s.producttype}}'/><br />  
+                    &euro;:{{s.price}}<a href='/games?{{s.id}}'>
+                     <img src="static/resources/add_to_cart.png" style='' /></a>
+                </td>
+                {%if divider >= 4%}
+                    {%set divider = 0%}
+                    </tr>
+                {%endif%}   
+            {%endfor%}
+    </tr>
+        </table>
+    </form>
+    </div>
+</div>
 
  {% endblock %}
+ 

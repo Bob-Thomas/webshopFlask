@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block body %}
+<script type="text/javascript">
+$("document").ready(function(){
+
+});
+</script>
+<h1>Shopping Cart</h1>
+{% if session.logged_in:%}
+<form action='' method=post id='cartForm'>
+	<tr>
+        <td><div id="shopping_cart_content">
+        	<table border="0" width="100%" cellspacing="0" cellpadding="2" class="product-listing1" id="shopping_cart_listing">
+          <tr>
+            <th class="product-listing-heading1" align="left">Product Name</th>
+            <th class="product-listing-heading1" align="left">Price</th>
+            <th class="product-listing-heading1" align="right">Quantity</th>
+            <th class="product-listing-heading1" align="right">Total Price</th>
+         </tr>
+       	  {%for entries in showCart%}
+          <tr>
+            <td class='product-listing-heading1'>{{entries.name}}<input type='hidden' name='id' value='{{entries.id}}'/></td>
+            <td class='product-listing-heading1'>{{entries.price}}</td>
+            <td class="product-listing-heading1"><SELECT name='quantity'>
+
+           {% for p in range(0,100) %}
+              <option value=' {{ loop.index }}'>{{ loop.index }}</option>
+            {%endfor%}
+            </select></td>
+            <td class='product-listing-heading1'>{{entries.price}}<a href='/shoppingcart?{{entries.product_id}}' onClick="window.location.reload()"><img class='drop_cart_item' src="static/resources/img_drop.png" style='padding-left:1em;' /></a>
+          </tr>
+          {%endfor%}
+       		<tr>
+       			<td class="product-listing-heading1" align="right"></td>
+       			<td class="product-listing-heading1" ><input  type='submit' value='checkout' class='checkout' /></td>
+       			<td class="product-listing-heading1" > </td>
+       			<td class="product-listing-heading1" > </td>
+       		</tr>
+        </table>
+
+    </form>
+</div>
+{%else%}
+youre not logged in
+{%endif%}
+
+{% endblock %}

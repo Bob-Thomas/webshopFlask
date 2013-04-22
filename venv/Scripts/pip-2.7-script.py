@@ -1,4 +1,4 @@
-#!D:\python-websites\webshop\venv\Scripts\python.exe
+#!D:\python-websites\test\venv\Scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'pip==1.3.1','console_scripts','pip-2.7'
 __requires__ = 'pip==1.3.1'
 import sys
